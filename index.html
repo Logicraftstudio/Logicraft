@@ -19,7 +19,146 @@ body{
   overflow-x:hidden;
 }
 
-/* HEADER */
+/* ========================== */
+/*        LOADER              */
+/* ========================== */
+
+#loader{
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:#fff;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+  animation:hideLoader 1s ease forwards;
+  animation-delay:3.2s;
+}
+
+.loading-text{
+  margin-top:25px;
+  font-size:1.4em;
+  color:#000;
+  font-weight:600;
+}
+
+/* Steve */
+.steve{
+  position:relative;
+  width:120px;
+  height:200px;
+  transform-origin:bottom center;
+}
+
+.steve .head{
+  width:55px;
+  height:55px;
+  background:#000;
+  position:absolute;
+  top:0;
+  left:50%;
+  transform:translateX(-50%);
+  border-radius:4px;
+}
+
+.steve .body{
+  width:70px;
+  height:90px;
+  background:#000;
+  position:absolute;
+  top:60px;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+.steve .arm{
+  width:20px;
+  height:70px;
+  background:#000;
+  position:absolute;
+  top:60px;
+  left:5px;
+  transform-origin:top;
+  animation:picar 0.6s infinite;
+}
+
+.steve .arm2{
+  width:20px;
+  height:70px;
+  background:#000;
+  position:absolute;
+  top:60px;
+  right:5px;
+}
+
+/* Bloque */
+.block{
+  width:95px;
+  height:95px;
+  background:#000;
+  margin-top:20px;
+  position:relative;
+  animation:romper 3s forwards;
+}
+
+/* Grietas */
+.crack{
+  position:absolute;
+  background:#fff;
+  opacity:0;
+}
+
+.crack1{
+  width:60%; height:4px;
+  top:30%; left:20%;
+  animation:crack1 3s forwards;
+}
+.crack2{
+  width:4px; height:60%;
+  top:20%; left:48%;
+  animation:crack2 3s forwards;
+}
+.crack3{
+  width:50%; height:4px;
+  top:60%; left:25%;
+  animation:crack3 3s forwards;
+}
+
+/* Animaciones del loader */
+@keyframes picar{
+  0%{ transform:rotate(0deg); }
+  50%{ transform:rotate(-35deg); }
+  100%{ transform:rotate(0deg); }
+}
+
+@keyframes crack1{
+  60%{opacity:1;}
+  100%{opacity:1;}
+}
+@keyframes crack2{
+  75%{opacity:1;}
+  100%{opacity:1;}
+}
+@keyframes crack3{
+  90%{opacity:1;}
+  100%{opacity:1;}
+}
+
+@keyframes romper{
+  0%{}
+  100%{transform:scale(1.05);}
+}
+
+@keyframes hideLoader{
+  to{ opacity:0; visibility:hidden; }
+}
+
+/* ========================== */
+/*          HEADER            */
+/* ========================== */
+
 header{
   background:#000;
   color:#fff;
@@ -50,7 +189,10 @@ nav a:hover{
   color:#aaa;
 }
 
-/* CONTENIDO */
+/* ========================== */
+/*          CONTENIDO         */
+/* ========================== */
+
 main{
   flex:1;
   display:flex;
@@ -59,7 +201,6 @@ main{
   padding:100px 30px;
 }
 
-/* Títulos */
 .big-text{
   font-size:4.5em;
   font-weight:900;
@@ -80,7 +221,6 @@ main{
   to{opacity:1;}
 }
 
-/* Descripción */
 .description{
   font-size:1.3em;
   color:#ccc;
@@ -90,7 +230,6 @@ main{
   line-height:1.6;
 }
 
-/* Botones */
 .btn{
   background:#fff;
   color:#000;
@@ -130,7 +269,7 @@ main{
   color:#aaa;
 }
 
-/* FOOTER */
+/* Footer */
 footer{
   background:#000;
   color:#888;
@@ -139,7 +278,6 @@ footer{
   margin-top:auto;
 }
 
-/* Responsive */
 @media(max-width:900px){
   .big-text{font-size:3.2em;}
   .typewriter{font-size:2.4em;}
@@ -149,20 +287,35 @@ footer{
 
 <body>
 
+<!-- LOADER -->
+<div id="loader">
+  <div class="steve">
+    <div class="head"></div>
+    <div class="body"></div>
+    <div class="arm"></div>
+    <div class="arm2"></div>
+  </div>
+
+  <div class="block">
+    <div class="crack crack1"></div>
+    <div class="crack crack2"></div>
+    <div class="crack crack3"></div>
+  </div>
+
+  <p class="loading-text">Cargando...</p>
+</div>
+
 <header>
   <h1>Logicraft Studio</h1>
   <nav>
     <a href="proyectos.html">Inicio</a>
     <a href="proyectos.html">Proyectos</a>
     <a href="servicios.html">Servicios</a>
-    <a href="equipo.html">Equipo</a>
     <a href="contacto.html">Contacto</a>
   </nav>
 </header>
 
 <main>
-
-  <!-- CUADRADO ELIMINADO -->
 
   <div class="big-text">Creamos</div>
   <div class="typewriter">modelos epicos</div>
@@ -203,7 +356,7 @@ footer{
 </footer>
 
 <script>
-// Animación de estadísticas
+/* Stats animación */
 window.addEventListener('load', () => {
   const counters = document.querySelectorAll('.stat-item h3');
 
@@ -223,6 +376,11 @@ window.addEventListener('load', () => {
     update();
   });
 });
+
+/* Ocultar loader */
+setTimeout(() => {
+  document.getElementById("loader").style.display = "none";
+}, 4000);
 </script>
 
 </body>
