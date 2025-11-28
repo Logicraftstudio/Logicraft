@@ -3,11 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pixelcraft Studio | Inicio</title>
+<title>Logicraft Studio | Inicio</title>
+
 <style>
 * {margin:0; padding:0; box-sizing:border-box; font-family:"Poppins",sans-serif;}
+
 body {
-  background: linear-gradient(180deg, #111 0%, #222 40%, #fff 100%);
+  background:#0a0a0a;
   color:#fff;
   min-height:100vh;
   display:flex;
@@ -18,7 +20,6 @@ body {
 /* Header */
 header {
   background:#000;
-  color:#fff;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -26,170 +27,200 @@ header {
   position:sticky;
   top:0;
   z-index:1000;
+  border-bottom:1px solid #111;
 }
-header h1 { font-size:1.8em; font-weight:700; }
-nav a { color:#fff; text-decoration:none; margin-left:20px; transition:0.3s; font-weight:500; }
-nav a:hover { color:#0ff; text-shadow:0 0 8px #0ff; }
 
-/* Main */
+header h1 {
+  font-size:1.8em;
+  font-weight:700;
+  color:#ff2b2b;
+}
+
+nav a {
+  color:#fff;
+  text-decoration:none;
+  margin-left:25px;
+  font-weight:500;
+  transition:0.3s;
+}
+
+nav a:hover {
+  color:#ff2b2b;
+  text-shadow:0 0 8px #ff2b2b;
+}
+
+/* Sección */
 main {
   flex:1;
   display:flex;
   flex-direction:column;
   align-items:center;
-  padding:80px 30px;
-  gap:50px;
+  padding:100px 30px;
 }
 
-/* Sección principal */
-.section {
-  display:flex;
-  flex-direction:column;
-  gap:15px;
-  max-width:700px;
-  align-items:center;
-}
-
-/* Cuadro pequeño */
+/* Etiqueta pequeña */
 .small-box {
-  border:2px solid #0ff;
+  border:2px solid #ff2b2b;
   padding:5px 15px;
   font-weight:600;
-  font-size:1em;
-  background:rgba(0,255,255,0.05);
+  background:rgba(255,0,0,0.08);
   border-radius:8px;
-  text-align:center;
+  margin-bottom:20px;
 }
 
-/* Texto "Creamos" */
+/* Texto grande */
 .big-text {
-  font-size:4em;
-  font-weight:700;
+  font-size:4.5em;
+  font-weight:900;
+  letter-spacing:1px;
   color:#fff;
-  margin-top:10px;
+  text-align:center;
+  margin-bottom:5px;
+}
+
+/* Texto secundario */
+.typewriter {
+  font-size:4em;
+  font-weight:800;
+  color:#ff2b2b;
+  animation:appear 2s forwards;
+  opacity:0;
   text-align:center;
 }
 
-/* Texto "Juegos Épicos" animación aparición */
-.typewriter {
-  font-size:3em;
-  font-weight:700;
-  color:#0ff;
-  opacity:0;
-  transform:translateY(20px);
-  animation:appear 2s forwards;
-  text-align:center;
+@keyframes appear {
+  to {opacity:1; transform:translateY(0);}
 }
-@keyframes appear { to {opacity:1; transform:translateY(0);} }
 
 /* Descripción */
 .description {
-  font-size:1.2em;
-  color:#ddd;
-  line-height:1.5;
+  font-size:1.3em;
+  color:#ccc;
   text-align:center;
-  margin-top:10px;
+  margin-top:20px;
+  max-width:800px;
+  line-height:1.5;
 }
 
 /* Botones */
 .btn {
-  background:#0ff;
-  color:#000;
-  padding:12px 28px;
+  background:#ff2b2b;
+  color:#fff;
+  padding:12px 30px;
   border:none;
   cursor:pointer;
-  border-radius:5px;
+  border-radius:6px;
   font-weight:600;
-  margin:5px 5px 0 0;
+  margin:10px 10px 0 0;
   transition:0.3s;
 }
+
 .btn:hover {
-  background:#00cccc;
-  color:#fff;
-  transform:scale(1.05);
+  background:#d92020;
+  transform:scale(1.08);
 }
 
-/* Estadísticas */
-.stats { display:flex; flex-wrap:wrap; gap:30px; margin-top:40px;}
-.stat-item { flex:1; min-width:120px; text-align:center; }
-.stat-item h3 { font-size:2em; margin-bottom:5px; color:#0ff; }
-.stat-item p { font-size:1em; color:#ddd; }
+/* Stats */
+.stats {
+  display:flex;
+  gap:40px;
+  flex-wrap:wrap;
+  margin-top:60px;
+}
+
+.stat-item {
+  text-align:center;
+  min-width:150px;
+}
+
+.stat-item h3 {
+  font-size:2.5em;
+  font-weight:700;
+  color:#ff2b2b;
+}
+
+.stat-item p {
+  color:#bbb;
+  font-size:1em;
+}
 
 /* Footer */
 footer {
   background:#000;
-  text-align:center;
   padding:20px;
-  color:#aaa;
-  font-size:0.9em;
+  text-align:center;
+  color:#777;
 }
-
-@keyframes fadeIn { from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
 
 /* Responsive */
 @media(max-width:900px){
-  main {padding:60px 20px;}
-  .big-text,.typewriter { font-size:2em; }
+  .big-text { font-size:2.8em; }
+  .typewriter { font-size:2.4em; }
 }
 </style>
 </head>
+
 <body>
 
 <header>
-<h1>Pixelcraft Studio</h1>
-<nav>
-  <a href="index.html">Inicio</a>
-  <a href="proyectos.html">Proyectos</a>
-  <a href="servicios.html">Servicios</a>
-  <a href="contacto.html">Contacto</a>
-  <a href="equipo.html">Equipo</a>
-</nav>
+  <h1>Logicraft Studio</h1>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="proyectos.html">Proyectos</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="equipo.html">Equipo</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
 </header>
 
 <main>
-  <div class="section">
-    <div class="small-box">Estudio Profesional de Roblox</div>
-    <div class="big-text">Creamos</div>
-    <div class="typewriter">Juegos Épicos</div>
-    <div class="description">
-      Somos un estudio profesional de Roblox que transforma tus ideas en <b>eventos y experiencias extraordinarias.</b>
-    </div>
-    <div>
-      <a href="proyectos.html"><button class="btn">Ver Proyectos</button></a>
-      <a href="contacto.html"><button class="btn">Contactar Ahora</button></a>
-    </div>
+  <div class="small-box">Estudio Profesional de Minecraft</div>
 
-    <div class="stats">
-      <div class="stat-item"><h3 data-target="9">0</h3><p>Proyectos Completados</p></div>
-      <div class="stat-item"><h3 data-target="9">0</h3><p>Clientes Satisfechos</p></div>
-      <div class="stat-item"><h3 data-target="5">0</h3><p>Creadores Expertos</p></div>
-      <div class="stat-item"><h3 data-target="24">0</h3><p>Soporte Disponible</p></div>
-    </div>
+  <div class="big-text">Creamos</div>
+  <div class="typewriter">Mundos Épicos</div>
+
+  <p class="description">
+    Somos un estudio profesional de Minecraft que transforma tus ideas en 
+    <b>eventos y experiencias extraordinarias</b>. Desde grandes festivales hasta 
+    competiciones épicas.
+  </p>
+
+  <div>
+    <a href="proyectos.html"><button class="btn">Ver Proyectos</button></a>
+    <a href="contacto.html"><button class="btn">Contactar Ahora</button></a>
+  </div>
+
+  <div class="stats">
+    <div class="stat-item"><h3 data-target="12">0</h3><p>Proyectos Completados</p></div>
+    <div class="stat-item"><h3 data-target="11">0</h3><p>Clientes Satisfechos</p></div>
+    <div class="stat-item"><h3 data-target="6">0</h3><p>Constructores Expertos</p></div>
+    <div class="stat-item"><h3 data-target="24">0</h3><p>Soporte Disponible</p></div>
   </div>
 </main>
 
 <footer>
-<p>© 2025 Pixelcraft Studio - Todos los derechos reservados</p>
+  © 2025 Logicraft Studio — Todos los derechos reservados
 </footer>
 
 <script>
-// Estadísticas animadas
+// Animación de estadísticas
 window.addEventListener('load', () => {
   const counters = document.querySelectorAll('.stat-item h3');
-  counters.forEach(counter=>{
-    const target=+counter.getAttribute('data-target');
-    let count=0;
-    const speed=150;
-    const updateCount=()=>{
-      if(count<target){
+
+  counters.forEach(counter => {
+    const target = Number(counter.getAttribute("data-target"));
+    let count = 0;
+
+    function update() {
+      if (count < target) {
         count++;
-        counter.textContent=count+(counter.dataset.target==="24"?"/7":"");
-        setTimeout(updateCount,speed);
-      }else if(counter.dataset.target==="24"){
-        counter.textContent="24/7";
+        counter.textContent = count + (target === 24 ? "/7" : "");
+        setTimeout(update, 80);
+      } else if (target === 24) {
+        counter.textContent = "24/7";
       }
-    };
-    updateCount();
+    }
+    update();
   });
 });
 </script>
