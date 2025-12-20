@@ -4,21 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Logicraft Studio | Contacto</title>
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
-body {
-  background: linear-gradient(180deg, #111 0%, #222 40%, #000 100%);
-  color: #fff;
-  min-height: 100vh;
+
+:root{
+  --rojo:#c62828;
+  --verde:#2e7d32;
+}
+
+body{
+  background:linear-gradient(180deg,#0b0b0b 0%,#141414 40%,#000 100%);
+  color:#fff;
+  min-height:100vh;
   display:flex;
   flex-direction:column;
   overflow-x:hidden;
 }
 
-/* Header */
-header {
+/* HEADER */
+header{
   background:#000;
-  color:#fff;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -26,89 +32,159 @@ header {
   position:sticky;
   top:0;
   z-index:1000;
-  box-shadow:0 2px 10px rgba(0,0,0,0.5);
+  border-bottom:2px solid var(--rojo);
+  box-shadow:0 0 15px rgba(198,40,40,.6);
 }
-header h1{font-size:1.8em;font-weight:700;}
+
+header h1{
+  font-size:1.9em;
+  cursor:pointer;
+  text-shadow:
+    0 0 8px var(--rojo),
+    0 0 14px var(--verde);
+}
+
 nav a{
   color:#fff;
   text-decoration:none;
   margin-left:20px;
-  transition:0.3s;
   font-weight:500;
-}
-nav a:hover{
-  color:#5f8fa0;
-  text-shadow:0 0 8px #5f8fa0;
+  transition:.3s;
 }
 
+nav a:hover{
+  color:var(--verde);
+  text-shadow:0 0 10px var(--verde);
+}
+
+/* LUCES NAVIDAD */
+.luces{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:6px;
+  background:repeating-linear-gradient(
+    90deg,
+    var(--rojo) 0 20px,
+    var(--verde) 20px 40px
+  );
+  animation:blink 1.5s infinite alternate;
+}
+
+@keyframes blink{
+  from{filter:brightness(1);}
+  to{filter:brightness(1.6);}
+}
+
+/* MAIN */
 main{
   flex:1;
   padding:100px 40px 60px;
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:40px;
+  gap:35px;
 }
 
 h2{
-  font-size:2.5em;
-  margin-bottom:20px;
-  color:#5f8fa0;
-  text-shadow:0 0 8px rgba(95,143,160,0.3);
+  font-size:2.6em;
+  color:#fff;
+  text-align:center;
+  text-shadow:
+    0 0 12px var(--rojo),
+    0 0 24px var(--verde);
+}
+
+p{
+  color:#ddd;
+  font-size:1.2em;
   text-align:center;
 }
 
-/* Apartado de enlaces */
-.links {
+/* LINKS */
+.links{
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
-  gap:20px;
+  gap:25px;
   margin-top:30px;
 }
-.link-item {
-  background: rgba(95,143,160,0.05);
-  border:2px solid #5f8fa0;
-  border-radius:8px;
-  transition:0.3s;
+
+.link-item{
+  min-width:160px;
+  padding:18px 25px;
   text-align:center;
-  min-width:150px;
-  padding:15px 20px;
+  border-radius:10px;
   cursor:pointer;
-}
-.link-item a {
-  color:#5f8fa0;
-  text-decoration:none;
-  font-weight:600;
-  display:block;
-  width:100%;
-  height:100%;
-}
-.link-item:hover {
-  background: rgba(95,143,160,0.1);
-  transform:translateY(-5px);
-}
-.link-item:active {
-  transform:scale(0.97);
+  border:2px solid var(--rojo);
+  background:linear-gradient(
+    135deg,
+    rgba(198,40,40,.2),
+    rgba(46,125,50,.2)
+  );
+  transition:.3s;
+  box-shadow:0 0 15px rgba(0,0,0,.6);
 }
 
+.link-item a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.link-item:hover{
+  transform:translateY(-6px) scale(1.05);
+  box-shadow:
+    0 0 15px var(--rojo),
+    0 0 25px var(--verde);
+}
+
+/* NIEVE */
+.snow{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  background-image:
+    radial-gradient(2px 2px at 20px 30px,#fff,transparent),
+    radial-gradient(2px 2px at 80px 90px,#fff,transparent),
+    radial-gradient(1.5px 1.5px at 140px 150px,#fff,transparent);
+  animation:snow 10s linear infinite;
+  opacity:.6;
+}
+
+@keyframes snow{
+  from{background-position:0 0;}
+  to{background-position:0 600px;}
+}
+
+/* FOOTER */
 footer{
   background:#000;
   text-align:center;
   padding:20px;
   color:#aaa;
-  font-size:0.9em;
+  border-top:1px solid rgba(255,255,255,.1);
 }
 
+/* RESPONSIVE */
 @media(max-width:600px){
-  h2{font-size:2em;}
+  h2{font-size:2.1em;}
+  p{font-size:1em;}
 }
 </style>
 </head>
+
 <body>
 
+<div class="snow"></div>
+
 <header>
-<h1>Logicraft Studio</h1>
+<div class="luces"></div>
+<h1 onclick="window.location.href='index.html'">Logicraft Studio</h1>
 <nav>
   <a href="index.html">Inicio</a>
   <a href="proyectos.html">Proyectos</a>
@@ -118,24 +194,24 @@ footer{
 </header>
 
 <main>
-<h2>Contacto</h2>
-<p>Visita nuestras redes para más información y soporte:</p>
+<h2>🎄 Contacto 🎄</h2>
+<p>Únete a nuestra comunidad y celebra con nosotros esta Navidad</p>
 
 <div class="links">
   <div class="link-item" onclick="window.open('https://discord.gg/MbaZ8kZzBS','_blank')">
     <a>Discord</a>
   </div>
-  <div class="link-item" onclick="window.open('https://www.tiktok.com/@pixelcraftstudio0?_t=ZM-90aGXqKzJhz&_r=1','_blank')">
+  <div class="link-item" onclick="window.open('https://www.tiktok.com/@pixelcraftstudio0','_blank')">
     <a>TikTok</a>
   </div>
   <div class="link-item" onclick="window.open('https://pixelcraftstudio-1.github.io/Tienda/','_blank')">
-    <a>tienda</a>
+    <a>Tienda</a>
   </div>
 </div>
 </main>
 
 <footer>
-<p>© 2025 Logicraft Studio - Todos los derechos reservados</p>
+<p>© 2025 Logicraft Studio — Felices Fiestas 🎅🎄</p>
 </footer>
 
 </body>
