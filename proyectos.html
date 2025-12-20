@@ -5,189 +5,210 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Logicraft Studio | Proyectos</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
-/* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
+
+:root{
+  --bg1:#080808;
+  --bg2:#0f1a12;
+  --verde:#1fd655;
+  --gris:#999;
 }
 
 /* FONDO */
-body {
-    background: linear-gradient(180deg, #0b0b0b 0%, #141414 40%, #000 100%);
-    color: #eaeaea;
-    min-height: 100vh;
-    overflow-x: hidden;
+body{
+  background:
+    radial-gradient(circle at top,#0f2a18 0%,transparent 60%),
+    linear-gradient(180deg,var(--bg1),var(--bg2),#000);
+  color:#eaeaea;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* NIEVE */
+.snow{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    radial-gradient(2px 2px at 20px 30px,#fff,transparent),
+    radial-gradient(1.5px 1.5px at 120px 80px,#fff,transparent),
+    radial-gradient(2px 2px at 60px 160px,#fff,transparent);
+  background-size:200px 200px;
+  animation:snow 14s linear infinite;
+  opacity:.6;
+}
+@keyframes snow{
+  from{background-position:0 -200px}
+  to{background-position:0 700px}
 }
 
 /* HEADER */
-header {
-    background: #000;
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 2px solid rgba(150,150,150,0.25); /* gris */
+header{
+  background:#000;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 40px;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  border-bottom:2px solid rgba(31,214,85,.35);
+  box-shadow:0 0 20px rgba(31,214,85,.25);
 }
 
-header h1 {
-    font-size: 26px;
-    font-weight: 700;
-    cursor: pointer;
-    color: #ccc;
-    text-shadow: 0 0 10px #777;
+header h1{
+  font-size:26px;
+  font-weight:700;
+  cursor:pointer;
+}
+header h1::after{
+  content:" 🎄";
 }
 
 /* NAV */
-nav a {
-    color: #ddd;
-    margin-left: 18px;
-    text-decoration: none;
-    font-size: 15px;
-    transition: .3s;
-    padding-bottom: 4px;
-    border-bottom: 2px solid transparent;
+nav a{
+  color:#ddd;
+  margin-left:18px;
+  text-decoration:none;
+  font-size:15px;
+  transition:.3s;
+  padding-bottom:4px;
+  border-bottom:2px solid transparent;
+}
+nav a:hover{
+  color:var(--verde);
+  border-bottom:2px solid var(--verde);
 }
 
-nav a:hover {
-    color: #4da3ff; /* azul */
-    border-bottom: 2px solid #4da3ff;
+/* TITULO */
+.main-title{
+  text-align:center;
+  margin-top:30px;
+  font-size:42px;
+  color:#fff;
+  text-shadow:0 0 18px rgba(255,255,255,.4);
 }
-
-/* TÍTULO */
-.main-title {
-    text-align: center;
-    margin-top: 25px;
-    font-size: 40px;
-    color: #fff;
-    text-shadow: 0 0 15px rgba(255,255,255,0.35);
+.main-title::after{
+  content:" ❄️";
 }
 
 /* GRID */
-.projects-grid {
-    width: 90%;
-    max-width: 1100px;
-    margin: 50px auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 30px;
+.projects-grid{
+  width:90%;
+  max-width:1100px;
+  margin:60px auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:32px;
 }
 
 /* TARJETAS */
-.card {
-    background: #0f0f0f;
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 14px;
-    overflow: hidden;
-    box-shadow: 0 0 15px rgba(255,255,255,0.05);
-    transition: 0.3s ease-in-out;
+.card{
+  background:rgba(0,0,0,.45);
+  border:1px solid rgba(31,214,85,.35);
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 0 20px rgba(31,214,85,.15);
+  transition:.3s;
+}
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 0 28px rgba(31,214,85,.35);
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 15px rgba(255,255,255,0.2);
-}
-
-/* IMAGEN DEL PROYECTO */
-.card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    background: #1a1a1a;
+/* IMAGEN */
+.card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  background:#1a1a1a;
 }
 
 /* TEXTO */
-.card .content {
-    padding: 20px;
-    text-align: center;
+.card .content{
+  padding:20px;
+  text-align:center;
 }
-
-.card h3 {
-    font-size: 22px;
-    margin-bottom: 8px;
-    color: #fff;
+.card h3{
+  font-size:22px;
+  margin-bottom:8px;
+  color:#fff;
 }
-
-.card p {
-    font-size: 15px;
-    color: #cfcfcf;
-    line-height: 1.5;
+.card p{
+  font-size:15px;
+  color:#cfcfcf;
+  line-height:1.5;
 }
 
 /* FOOTER */
-footer {
-    margin-top: 60px;
-    padding: 20px;
-    text-align: center;
-    color: #777;
+footer{
+  margin-top:60px;
+  padding:22px;
+  text-align:center;
+  color:#aaa;
+  background:#000;
+  border-top:1px solid #222;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-    <h1 onclick="window.location.href='index.html'">Logicraft Studio</h1>
+<div class="snow"></div>
 
-    <nav>
-        <a href="index.html">Inicio</a>
-        <a href="proyectos.html">Proyectos</a>
-        <a href="servicios.html">Servicios</a>
-        <!-- Eliminado "Equipo" -->
-        <a href="contacto.html">Contacto</a>
-    </nav>
+<header>
+  <h1 onclick="location.href='index.html'">Logicraft Studio</h1>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="proyectos.html">Proyectos</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
 </header>
 
 <h2 class="main-title">Nuestros Proyectos</h2>
 
 <div class="projects-grid">
 
-    <!-- squid craft 4 -->
-    <div class="card">
-        <img src="img/proyecto1.png" alt="Proyecto 1">
-        <div class="content">
-            <h3>s</h3>
-            <p>mod de los squid craft 4 con modelos y audios</p>
-        </div>
+  <div class="card">
+    <img src="img/proyecto1.png" alt="Squid Craft 4">
+    <div class="content">
+      <h3>Squid Craft 4</h3>
+      <p>Mod inspirado en Squid Craft 4 con modelos y audios personalizados.</p>
     </div>
+  </div>
 
-    <!-- PROYECTO 2 -->
-    <div class="card">
-        <img src="img/proyecto2.png" alt="Proyecto 2">
-        <div class="content">
-            <h3>Proyecto 2</h3>
-            <p>???</p>
-        </div>
+  <div class="card">
+    <img src="img/proyecto2.png" alt="Proyecto 2">
+    <div class="content">
+      <h3>Proyecto 2</h3>
+      <p>Próximamente…</p>
     </div>
+  </div>
 
-    <!-- PROYECTO 3 -->
-    <div class="card">
-        <img src="img/proyecto3.png" alt="Proyecto 3">
-        <div class="content">
-            <h3>Proyecto 3</h3>
-            <p>>???</</p>
-        </div>
+  <div class="card">
+    <img src="img/proyecto3.png" alt="Proyecto 3">
+    <div class="content">
+      <h3>Proyecto 3</h3>
+      <p>En desarrollo.</p>
     </div>
+  </div>
 
-    <!-- PROYECTO 4 -->
-    <div class="card">
-        <img src="img/proyecto4.png" alt="Proyecto 4">
-        <div class="content">
-            <h3>Proyecto 4</h3>
-            <p>>???</</p>
-        </div>
+  <div class="card">
+    <img src="img/proyecto4.png" alt="Proyecto 4">
+    <div class="content">
+      <h3>Proyecto 4</h3>
+      <p>Muy pronto.</p>
     </div>
+  </div>
 
 </div>
 
 <footer>
-    © 2025 Logicraft Studio – Todos los derechos reservados.
+  🎅 © 2025 Logicraft Studio — Especial Navidad
 </footer>
 
 </body>
