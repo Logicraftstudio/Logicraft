@@ -11,38 +11,20 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
 
 :root{
-  --bg1:#070707;
-  --bg2:#0f1a12;
-  --navidad:#1fd655;
-  --rojo:#c61d1d;
+  --bg1:#05070f;
+  --bg2:#0a1022;
+  --accent:#ffd700;
+  --accent2:#4da6ff;
 }
 
 /* FONDO */
 body{
   background:
-    radial-gradient(circle at top,#0f2a18 0%,transparent 60%),
+    radial-gradient(circle at top,#1a2550 0%,transparent 60%),
     linear-gradient(180deg,var(--bg1),var(--bg2));
   color:#fff;
   min-height:100vh;
   overflow-x:hidden;
-}
-
-/* NIEVE */
-.snow{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  background-image:
-    radial-gradient(2px 2px at 20px 30px,#fff,transparent),
-    radial-gradient(1.5px 1.5px at 120px 90px,#fff,transparent),
-    radial-gradient(2px 2px at 60px 160px,#fff,transparent);
-  background-size:200px 200px;
-  animation:snow 14s linear infinite;
-  opacity:.6;
-}
-@keyframes snow{
-  from{background-position:0 -200px}
-  to{background-position:0 700px}
 }
 
 /* HEADER */
@@ -55,12 +37,12 @@ header{
   position:sticky;
   top:0;
   z-index:1000;
-  border-bottom:2px solid rgba(31,214,85,.4);
-  box-shadow:0 0 20px rgba(31,214,85,.25);
+  border-bottom:2px solid rgba(255,215,0,.35);
+  box-shadow:0 0 22px rgba(255,215,0,.25);
 }
 
 header h1::after{
-  content:" 🎄";
+  content:" ✨ 2025";
 }
 
 nav a{
@@ -70,7 +52,7 @@ nav a{
   transition:.25s;
 }
 nav a:hover{
-  color:var(--navidad);
+  color:var(--accent);
 }
 
 /* CONTENIDO */
@@ -91,7 +73,7 @@ main{
 .typewriter{
   font-size:3.2em;
   font-weight:700;
-  color:var(--navidad);
+  color:var(--accent);
   animation:fadeIn 1.6s forwards;
   text-align:center;
 }
@@ -109,8 +91,8 @@ main{
 
 /* BOTONES */
 .btn{
-  background:linear-gradient(135deg,var(--navidad),#42ff8e);
-  color:#003b14;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#001733;
   padding:14px 34px;
   border:none;
   border-radius:8px;
@@ -121,7 +103,7 @@ main{
 }
 .btn:hover{
   transform:scale(1.08);
-  filter:brightness(1.1);
+  filter:brightness(1.15);
 }
 
 /* STATS */
@@ -136,10 +118,10 @@ main{
   text-align:center;
   min-width:160px;
   background:rgba(0,0,0,.35);
-  border:1px solid rgba(31,214,85,.4);
+  border:1px solid rgba(255,215,0,.35);
   border-radius:14px;
   padding:22px 26px;
-  box-shadow:0 0 18px rgba(31,214,85,.25);
+  box-shadow:0 0 20px rgba(255,215,0,.25);
 }
 
 .stat-item h3{
@@ -154,7 +136,7 @@ main{
 /* FOOTER */
 footer{
   background:#000;
-  color:#999;
+  color:#aaa;
   text-align:center;
   padding:24px;
   border-top:1px solid #222;
@@ -169,12 +151,10 @@ footer{
 
 <body>
 
-<div class="snow"></div>
-
 <header>
   <h1>Logicraft Studio</h1>
   <nav>
-    <a href="proyectos.html">Inicio</a>
+    <a href="index.html">Inicio</a>
     <a href="proyectos.html">Proyectos</a>
     <a href="servicios.html">Servicios</a>
     <a href="contacto.html">Contacto</a>
@@ -183,17 +163,17 @@ footer{
 
 <main>
 
-  <div class="big-text">Creamos</div>
-  <div class="typewriter">cosas épicas</div>
+  <div class="big-text">Creamos el</div>
+  <div class="typewriter">futuro digital</div>
 
   <p class="description">
-    En Logicraft Studio transformamos ideas en
-    <b>experiencias únicas</b>, eventos y sistemas profesionales.
+    Este <b>2025</b> llevamos tus ideas al siguiente nivel con
+    experiencias, eventos y sistemas profesionales.
   </p>
 
   <div>
     <button class="btn" onclick="location.href='proyectos.html'">Ver Proyectos</button>
-    <button class="btn" onclick="location.href='contacto.html'">Contactar Ahora</button>
+    <button class="btn" onclick="location.href='contacto.html'">Contactar</button>
   </div>
 
   <div class="stats">
@@ -218,7 +198,7 @@ footer{
 </main>
 
 <footer>
-  🎅 © 2025 Logicraft Studio — Especial Navidad
+  ✨ © 2025 Logicraft Studio — Nuevo Año, Nuevas Ideas
 </footer>
 
 <script>
