@@ -8,7 +8,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Poppins",sans-serif;
+}
 
 :root{
   --bg1:#080808;
@@ -25,24 +30,6 @@ body{
   color:#eaeaea;
   min-height:100vh;
   overflow-x:hidden;
-}
-
-/* NIEVE */
-.snow{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  background-image:
-    radial-gradient(2px 2px at 20px 30px,#fff,transparent),
-    radial-gradient(1.5px 1.5px at 120px 80px,#fff,transparent),
-    radial-gradient(2px 2px at 60px 160px,#fff,transparent);
-  background-size:200px 200px;
-  animation:snow 14s linear infinite;
-  opacity:.6;
-}
-@keyframes snow{
-  from{background-position:0 -200px}
-  to{background-position:0 700px}
 }
 
 /* HEADER */
@@ -64,9 +51,6 @@ header h1{
   font-weight:700;
   cursor:pointer;
 }
-header h1::after{
-  content:" 🎄";
-}
 
 /* NAV */
 nav a{
@@ -86,13 +70,10 @@ nav a:hover{
 /* TITULO */
 .main-title{
   text-align:center;
-  margin-top:30px;
+  margin-top:40px;
   font-size:42px;
   color:#fff;
-  text-shadow:0 0 18px rgba(255,255,255,.4);
-}
-.main-title::after{
-  content:" ❄️";
+  text-shadow:0 0 18px rgba(255,255,255,.35);
 }
 
 /* GRID */
@@ -157,8 +138,6 @@ footer{
 
 <body>
 
-<div class="snow"></div>
-
 <header>
   <h1 onclick="location.href='index.html'">Logicraft Studio</h1>
   <nav>
@@ -208,7 +187,7 @@ footer{
 </div>
 
 <footer>
-  🎅 © 2025 Logicraft Studio — Especial Navidad
+  © 2025 Logicraft Studio — Todos los derechos reservados
 </footer>
 
 </body>
