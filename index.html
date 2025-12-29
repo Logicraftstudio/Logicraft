@@ -12,24 +12,32 @@
 
 :root{
   --bg1:#05070f;
-  --bg2:#0a1022;
-  --accent:#ffd700;
-  --accent2:#4da6ff;
+  --bg2:#090e22;
+  --gold:#ffd700;
+  --blue:#4da6ff;
+  --neon:#00f7ff;
 }
 
 /* FONDO */
 body{
   background:
-    radial-gradient(circle at top,#1a2550 0%,transparent 60%),
+    radial-gradient(circle at top,#1a2c5a 0%,transparent 60%),
     linear-gradient(180deg,var(--bg1),var(--bg2));
   color:#fff;
   min-height:100vh;
   overflow-x:hidden;
 }
 
+/* CANVAS FUEGOS */
+canvas{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+}
+
 /* HEADER */
 header{
-  background:#000;
+  background:rgba(0,0,0,.9);
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -38,11 +46,15 @@ header{
   top:0;
   z-index:1000;
   border-bottom:2px solid rgba(255,215,0,.35);
-  box-shadow:0 0 22px rgba(255,215,0,.25);
+  box-shadow:0 0 25px rgba(0,247,255,.25);
 }
 
+header h1{
+  font-weight:900;
+}
 header h1::after{
   content:" ✨ 2025";
+  color:var(--gold);
 }
 
 nav a{
@@ -52,81 +64,84 @@ nav a{
   transition:.25s;
 }
 nav a:hover{
-  color:var(--accent);
+  color:var(--neon);
 }
 
 /* CONTENIDO */
 main{
-  flex:1;
   display:flex;
   flex-direction:column;
   align-items:center;
-  padding:110px 30px;
+  padding:120px 30px;
+  text-align:center;
 }
 
 .big-text{
-  font-size:4.6em;
+  font-size:4.5em;
   font-weight:900;
-  text-align:center;
+  text-shadow:0 0 25px rgba(0,247,255,.4);
 }
 
 .typewriter{
-  font-size:3.2em;
+  font-size:3em;
   font-weight:700;
-  color:var(--accent);
-  animation:fadeIn 1.6s forwards;
-  text-align:center;
+  color:var(--gold);
+  margin-top:8px;
 }
 
-@keyframes fadeIn{to{opacity:1}}
-
 .description{
-  font-size:1.3em;
+  font-size:1.25em;
   color:#ccc;
   max-width:760px;
-  text-align:center;
   margin-top:26px;
   line-height:1.6;
 }
 
 /* BOTONES */
+.buttons{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  margin-top:30px;
+}
+
 .btn{
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  color:#001733;
-  padding:14px 34px;
+  background:linear-gradient(135deg,var(--gold),var(--blue));
+  color:#00142c;
+  padding:14px 36px;
   border:none;
-  border-radius:8px;
+  border-radius:10px;
   cursor:pointer;
   font-weight:700;
-  margin:18px 12px 0;
   transition:.25s;
 }
 .btn:hover{
-  transform:scale(1.08);
-  filter:brightness(1.15);
+  transform:scale(1.1);
+  box-shadow:0 0 30px rgba(0,247,255,.5);
 }
 
 /* STATS */
 .stats{
-  display:flex;
-  gap:40px;
-  flex-wrap:wrap;
-  margin-top:80px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:30px;
+  margin-top:90px;
+  width:100%;
+  max-width:900px;
 }
 
 .stat-item{
-  text-align:center;
-  min-width:160px;
-  background:rgba(0,0,0,.35);
-  border:1px solid rgba(255,215,0,.35);
-  border-radius:14px;
-  padding:22px 26px;
-  box-shadow:0 0 20px rgba(255,215,0,.25);
+  background:rgba(0,0,0,.45);
+  border:1px solid rgba(0,247,255,.4);
+  border-radius:16px;
+  padding:24px;
+  box-shadow:0 0 25px rgba(0,247,255,.25);
 }
 
 .stat-item h3{
-  font-size:2.7em;
+  font-size:2.6em;
   font-weight:900;
+  color:var(--gold);
 }
 
 .stat-item p{
@@ -142,14 +157,25 @@ footer{
   border-top:1px solid #222;
 }
 
-@media(max-width:900px){
-  .big-text{font-size:3.3em;}
-  .typewriter{font-size:2.4em;}
+/* MOBILE */
+@media(max-width:768px){
+  header{
+    flex-direction:column;
+    gap:10px;
+    padding:18px;
+  }
+  nav a{
+    margin:0 10px;
+  }
+  .big-text{font-size:3em;}
+  .typewriter{font-size:2.2em;}
 }
 </style>
 </head>
 
 <body>
+
+<canvas id="fireworks"></canvas>
 
 <header>
   <h1>Logicraft Studio</h1>
@@ -167,11 +193,11 @@ footer{
   <div class="typewriter">futuro digital</div>
 
   <p class="description">
-    Este <b>2025</b> llevamos tus ideas al siguiente nivel con
-    experiencias, eventos y sistemas profesionales.
+    Bienvenido al <b>2025</b>. Diseñamos experiencias,
+    eventos y sistemas con una visión moderna y profesional.
   </p>
 
-  <div>
+  <div class="buttons">
     <button class="btn" onclick="location.href='proyectos.html'">Ver Proyectos</button>
     <button class="btn" onclick="location.href='contacto.html'">Contactar</button>
   </div>
@@ -198,10 +224,11 @@ footer{
 </main>
 
 <footer>
-  ✨ © 2025 Logicraft Studio — Nuevo Año, Nuevas Ideas
+  ✨ © 2025 Logicraft Studio — Nuevo Año, Futuro Ilimitado
 </footer>
 
 <script>
+/* STATS */
 window.addEventListener('load',()=>{
   document.querySelectorAll('.stat-item h3').forEach(c=>{
     const t=+c.dataset.target;let n=0;
@@ -211,6 +238,44 @@ window.addEventListener('load',()=>{
     },70);
   });
 });
+
+/* FUEGOS ARTIFICIALES */
+const canvas=document.getElementById("fireworks");
+const ctx=canvas.getContext("2d");
+let w,h;
+function resize(){
+  w=canvas.width=window.innerWidth;
+  h=canvas.height=window.innerHeight;
+}
+window.addEventListener("resize",resize);
+resize();
+
+function firework(){
+  const x=Math.random()*w;
+  const y=Math.random()*h/2;
+  const colors=["#ffd700","#4da6ff","#00f7ff","#ffffff"];
+  for(let i=0;i<60;i++){
+    const a=Math.random()*Math.PI*2;
+    const s=Math.random()*4+2;
+    const px=x,py=y;
+    const vx=Math.cos(a)*s;
+    const vy=Math.sin(a)*s;
+    const c=colors[Math.floor(Math.random()*colors.length)];
+    let life=60;
+    (function anim(px,py,vx,vy,c){
+      function draw(){
+        if(life--<=0)return;
+        ctx.fillStyle=c;
+        ctx.fillRect(px,py,2,2);
+        px+=vx;
+        py+=vy;
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })(px,py,vx,vy,c);
+  }
+}
+setInterval(firework,1600);
 </script>
 
 </body>
