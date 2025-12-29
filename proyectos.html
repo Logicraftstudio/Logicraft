@@ -23,32 +23,37 @@
   --neon:#00f7ff;
 }
 
-/* FONDO */
+/* BODY CORREGIDO (CLAVE PARA F11) */
 body{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
   background:
     radial-gradient(circle at top,#1a2c5a 0%,transparent 60%),
     linear-gradient(180deg,var(--bg1),var(--bg2));
   color:#fff;
-  min-height:100vh;
   overflow-x:hidden;
 }
 
 /* HEADER */
 header{
+  width:100%;
+  max-width:100vw;
   background:rgba(0,0,0,.9);
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:20px 40px;
+  border-bottom:2px solid rgba(0,247,255,.35);
+  box-shadow:0 0 25px rgba(0,247,255,.25);
   position:sticky;
   top:0;
   z-index:1000;
-  border-bottom:2px solid rgba(255,215,0,.35);
-  box-shadow:0 0 25px rgba(0,247,255,.25);
 }
 
 header h1{
   font-weight:900;
+  font-size:24px;
   cursor:pointer;
 }
 
@@ -62,10 +67,19 @@ nav a:hover{
   color:var(--neon);
 }
 
+/* MAIN */
+main{
+  flex:1;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:80px 30px;
+  text-align:center;
+}
+
 /* TITULO */
 .main-title{
-  text-align:center;
-  margin:80px 20px 20px;
   font-size:3.5em;
   font-weight:900;
   text-shadow:0 0 25px rgba(0,247,255,.4);
@@ -73,57 +87,56 @@ nav a:hover{
 
 /* GRID */
 .projects-grid{
-  width:90%;
+  margin-top:70px;
+  width:100%;
   max-width:1100px;
-  margin:60px auto 100px;
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:34px;
+  gap:32px;
 }
 
-/* CARD */
+/* TARJETAS */
 .card{
   background:rgba(0,0,0,.45);
   border:1px solid rgba(0,247,255,.35);
   border-radius:18px;
   overflow:hidden;
-  box-shadow:0 0 25px rgba(0,247,255,.25);
+  box-shadow:0 0 25px rgba(0,247,255,.2);
   transition:.3s;
 }
 .card:hover{
-  transform:translateY(-10px) scale(1.02);
-  box-shadow:0 0 35px rgba(0,247,255,.5);
+  transform:translateY(-8px);
+  box-shadow:0 0 35px rgba(0,247,255,.45);
 }
 
-/* IMAGEN */
 .card img{
   width:100%;
   height:180px;
   object-fit:cover;
-  background:#000;
+  background:#111;
 }
 
-/* TEXTO */
 .card .content{
   padding:22px;
-  text-align:center;
 }
 
 .card h3{
-  font-size:1.6em;
-  font-weight:800;
+  font-size:22px;
+  margin-bottom:8px;
   color:var(--gold);
-  margin-bottom:10px;
 }
 
 .card p{
   color:#ccc;
-  line-height:1.6;
-  font-size:1em;
+  font-size:15px;
+  line-height:1.5;
 }
 
-/* FOOTER */
+/* FOOTER CORREGIDO (NO SE ROMPE EN F11) */
 footer{
+  width:100%;
+  max-width:100vw;
+  margin-top:auto;
   background:#000;
   color:#aaa;
   text-align:center;
@@ -131,7 +144,7 @@ footer{
   border-top:1px solid #222;
 }
 
-/* MOBILE */
+/* RESPONSIVE */
 @media(max-width:768px){
   header{
     flex-direction:column;
@@ -142,8 +155,7 @@ footer{
     margin:0 10px;
   }
   .main-title{
-    font-size:2.5em;
-    margin-top:60px;
+    font-size:2.6em;
   }
 }
 </style>
@@ -161,52 +173,35 @@ footer{
   </nav>
 </header>
 
-<h2 class="main-title">Nuestros Proyectos</h2>
+<main>
+  <h2 class="main-title">Nuestros Proyectos</h2>
 
-<div class="projects-grid">
+  <div class="projects-grid">
+    <div class="card">
+      <img src="img/proyecto1.png" alt="Proyecto 1">
+      <div class="content">
+        <h3>Squid Craft 4</h3>
+        <p>Mod inspirado en Squid Craft con modelos y audios personalizados.</p>
+      </div>
+    </div>
 
-  <div class="card">
-    <img src="img/proyecto1.png" alt="Squid Craft 4">
-    <div class="content">
-      <h3>Squid Craft 4</h3>
-      <p>
-        Mod inspirado en Squid Craft 4, con modelos personalizados,
-        animaciones avanzadas y efectos profesionales.
-      </p>
+    <div class="card">
+      <img src="img/proyecto2.png" alt="Proyecto 2">
+      <div class="content">
+        <h3>Proyecto 2</h3>
+        <p>Próximamente…</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="img/proyecto3.png" alt="Proyecto 3">
+      <div class="content">
+        <h3>Proyecto 3</h3>
+        <p>En desarrollo.</p>
+      </div>
     </div>
   </div>
-
-  <div class="card">
-    <img src="img/proyecto2.png" alt="Proyecto 2">
-    <div class="content">
-      <h3>Proyecto 2</h3>
-      <p>
-        Próximamente. Sistema innovador en desarrollo con enfoque futurista.
-      </p>
-    </div>
-  </div>
-
-  <div class="card">
-    <img src="img/proyecto3.png" alt="Proyecto 3">
-    <div class="content">
-      <h3>Proyecto 3</h3>
-      <p>
-        En desarrollo. Tecnología avanzada y diseño optimizado.
-      </p>
-    </div>
-  </div>
-
-  <div class="card">
-    <img src="img/proyecto4.png" alt="Proyecto 4">
-    <div class="content">
-      <h3>Proyecto 4</h3>
-      <p>
-        Muy pronto. Una experiencia digital única.
-      </p>
-    </div>
-  </div>
-
-</div>
+</main>
 
 <footer>
   ✨ © 2026 Logicraft Studio
