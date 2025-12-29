@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Logicraft Studio | Proyectos</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
 
 <style>
 *{
@@ -16,25 +16,26 @@
 }
 
 :root{
-  --bg1:#080808;
-  --bg2:#0f1a12;
-  --verde:#1fd655;
-  --gris:#999;
+  --bg1:#05070f;
+  --bg2:#090e22;
+  --gold:#ffd700;
+  --blue:#4da6ff;
+  --neon:#00f7ff;
 }
 
 /* FONDO */
 body{
   background:
-    radial-gradient(circle at top,#0f2a18 0%,transparent 60%),
-    linear-gradient(180deg,var(--bg1),var(--bg2),#000);
-  color:#eaeaea;
+    radial-gradient(circle at top,#1a2c5a 0%,transparent 60%),
+    linear-gradient(180deg,var(--bg1),var(--bg2));
+  color:#fff;
   min-height:100vh;
   overflow-x:hidden;
 }
 
 /* HEADER */
 header{
-  background:#000;
+  background:rgba(0,0,0,.9);
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -42,62 +43,56 @@ header{
   position:sticky;
   top:0;
   z-index:1000;
-  border-bottom:2px solid rgba(31,214,85,.35);
-  box-shadow:0 0 20px rgba(31,214,85,.25);
+  border-bottom:2px solid rgba(255,215,0,.35);
+  box-shadow:0 0 25px rgba(0,247,255,.25);
 }
 
 header h1{
-  font-size:26px;
-  font-weight:700;
+  font-weight:900;
   cursor:pointer;
 }
 
-/* NAV */
 nav a{
-  color:#ddd;
-  margin-left:18px;
+  color:#fff;
   text-decoration:none;
-  font-size:15px;
-  transition:.3s;
-  padding-bottom:4px;
-  border-bottom:2px solid transparent;
+  margin-left:22px;
+  transition:.25s;
 }
 nav a:hover{
-  color:var(--verde);
-  border-bottom:2px solid var(--verde);
+  color:var(--neon);
 }
 
 /* TITULO */
 .main-title{
   text-align:center;
-  margin-top:40px;
-  font-size:42px;
-  color:#fff;
-  text-shadow:0 0 18px rgba(255,255,255,.35);
+  margin:80px 20px 20px;
+  font-size:3.5em;
+  font-weight:900;
+  text-shadow:0 0 25px rgba(0,247,255,.4);
 }
 
 /* GRID */
 .projects-grid{
   width:90%;
   max-width:1100px;
-  margin:60px auto;
+  margin:60px auto 100px;
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:32px;
+  gap:34px;
 }
 
-/* TARJETAS */
+/* CARD */
 .card{
   background:rgba(0,0,0,.45);
-  border:1px solid rgba(31,214,85,.35);
-  border-radius:16px;
+  border:1px solid rgba(0,247,255,.35);
+  border-radius:18px;
   overflow:hidden;
-  box-shadow:0 0 20px rgba(31,214,85,.15);
+  box-shadow:0 0 25px rgba(0,247,255,.25);
   transition:.3s;
 }
 .card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 0 28px rgba(31,214,85,.35);
+  transform:translateY(-10px) scale(1.02);
+  box-shadow:0 0 35px rgba(0,247,255,.5);
 }
 
 /* IMAGEN */
@@ -105,33 +100,51 @@ nav a:hover{
   width:100%;
   height:180px;
   object-fit:cover;
-  background:#1a1a1a;
+  background:#000;
 }
 
 /* TEXTO */
 .card .content{
-  padding:20px;
+  padding:22px;
   text-align:center;
 }
+
 .card h3{
-  font-size:22px;
-  margin-bottom:8px;
-  color:#fff;
+  font-size:1.6em;
+  font-weight:800;
+  color:var(--gold);
+  margin-bottom:10px;
 }
+
 .card p{
-  font-size:15px;
-  color:#cfcfcf;
-  line-height:1.5;
+  color:#ccc;
+  line-height:1.6;
+  font-size:1em;
 }
 
 /* FOOTER */
 footer{
-  margin-top:60px;
-  padding:22px;
-  text-align:center;
-  color:#aaa;
   background:#000;
+  color:#aaa;
+  text-align:center;
+  padding:24px;
   border-top:1px solid #222;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  header{
+    flex-direction:column;
+    gap:12px;
+    padding:18px;
+  }
+  nav a{
+    margin:0 10px;
+  }
+  .main-title{
+    font-size:2.5em;
+    margin-top:60px;
+  }
 }
 </style>
 </head>
@@ -156,7 +169,10 @@ footer{
     <img src="img/proyecto1.png" alt="Squid Craft 4">
     <div class="content">
       <h3>Squid Craft 4</h3>
-      <p>Mod inspirado en Squid Craft 4 con modelos y audios personalizados.</p>
+      <p>
+        Mod inspirado en Squid Craft 4, con modelos personalizados,
+        animaciones avanzadas y efectos profesionales.
+      </p>
     </div>
   </div>
 
@@ -164,7 +180,9 @@ footer{
     <img src="img/proyecto2.png" alt="Proyecto 2">
     <div class="content">
       <h3>Proyecto 2</h3>
-      <p>Próximamente…</p>
+      <p>
+        Próximamente. Sistema innovador en desarrollo con enfoque futurista.
+      </p>
     </div>
   </div>
 
@@ -172,7 +190,9 @@ footer{
     <img src="img/proyecto3.png" alt="Proyecto 3">
     <div class="content">
       <h3>Proyecto 3</h3>
-      <p>En desarrollo.</p>
+      <p>
+        En desarrollo. Tecnología avanzada y diseño optimizado.
+      </p>
     </div>
   </div>
 
@@ -180,14 +200,16 @@ footer{
     <img src="img/proyecto4.png" alt="Proyecto 4">
     <div class="content">
       <h3>Proyecto 4</h3>
-      <p>Muy pronto.</p>
+      <p>
+        Muy pronto. Una experiencia digital única.
+      </p>
     </div>
   </div>
 
 </div>
 
 <footer>
-  © 2025 Logicraft Studio — Todos los derechos reservados
+  ✨ © 2026 Logicraft Studio
 </footer>
 
 </body>
