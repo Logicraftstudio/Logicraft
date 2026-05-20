@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Logicraft Studio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800;900&display=swap" rel="stylesheet">
 
 <style>
 
@@ -15,300 +14,283 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:"Poppins",sans-serif;
-}
-
-:root{
-
---bg:#0b0f1a;
---bg2:#131b2d;
-
---primary:#7b6dff;
---secondary:#6ea8ff;
---accent:#5ce1e6;
-
---text:#aeb8d1;
-
+font-family:Poppins,sans-serif;
 }
 
 body{
-
-background:
-linear-gradient(180deg,var(--bg),var(--bg2));
-
+background:#05060a;
 color:white;
-
-min-height:100vh;
-
 overflow-x:hidden;
+}
 
+/* BACKGROUND GLOW */
+body::before{
+content:"";
+position:fixed;
+width:800px;
+height:800px;
+background:radial-gradient(circle,#6ea8ff33,transparent 60%);
+top:-200px;
+right:-200px;
+filter:blur(80px);
+}
+
+body::after{
+content:"";
+position:fixed;
+width:600px;
+height:600px;
+background:radial-gradient(circle,#5ce1e633,transparent 60%);
+bottom:-200px;
+left:-200px;
+filter:blur(90px);
 }
 
 /* HEADER */
-
 header{
-
 display:flex;
 justify-content:space-between;
 align-items:center;
-
 padding:22px 50px;
-
-background:rgba(0,0,0,.35);
-
-backdrop-filter:blur(14px);
-
-border-bottom:1px solid rgba(255,255,255,.06);
-
+position:sticky;
+top:0;
+background:rgba(0,0,0,.3);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,255,255,.05);
+z-index:1000;
 }
-
-/* LOGO */
 
 .logo{
-
-display:flex;
-align-items:center;
-gap:14px;
-
-font-size:1.5rem;
-font-weight:800;
-
+font-weight:900;
+font-size:1.3rem;
 }
-
-.logo img{
-
-width:44px;
-height:44px;
-
-object-fit:contain;
-
-}
-
-/* NAV */
 
 nav{
-
 display:flex;
-gap:30px;
-
+gap:25px;
 }
 
 nav a{
-
-color:#c8d0e8;
-
+color:#bbb;
 text-decoration:none;
-
-font-weight:600;
-
 transition:.3s;
-
 }
 
 nav a:hover{
-
-color:white;
-
-}
-
-/* MAIN */
-
-main{
-
-max-width:1200px;
-
-margin:auto;
-
-padding:140px 30px;
-
-text-align:center;
-
+color:#5ce1e6;
 }
 
 /* HERO */
+.hero{
+height:90vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:40px;
+}
 
-.hero-title{
-
-font-size:5rem;
+.hero h1{
+font-size:4.5rem;
 font-weight:900;
-
-background:
-linear-gradient(
-90deg,
-#ffffff,
-#c8d8ff,
-var(--secondary)
-);
-
+background:linear-gradient(90deg,#fff,#7b6dff,#5ce1e6);
 -webkit-background-clip:text;
 color:transparent;
-
 }
 
-.hero-sub{
-
+.hero p{
+max-width:700px;
 margin-top:20px;
-
-font-size:1.7rem;
-
-color:var(--accent);
-
-}
-
-.description{
-
-max-width:800px;
-
-margin:35px auto;
-
-line-height:1.9;
-
-color:var(--text);
-
+color:#aaa;
 font-size:1.1rem;
-
+line-height:1.8;
 }
 
-/* BUTTON */
+/* BUTTONS */
+.btns{
+margin-top:35px;
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
 
 .btn{
-
-display:inline-block;
-
-padding:16px 40px;
-
-border-radius:16px;
-
-background:
-linear-gradient(
-135deg,
-var(--primary),
-var(--secondary)
-);
-
-text-decoration:none;
-
+padding:14px 30px;
+border-radius:12px;
+border:1px solid rgba(255,255,255,.1);
+background:rgba(255,255,255,.05);
 color:white;
-
-font-weight:700;
-
-margin-top:20px;
-
+cursor:pointer;
 transition:.3s;
-
 }
 
 .btn:hover{
-
 transform:translateY(-5px);
+background:rgba(92,225,230,.15);
+border-color:#5ce1e6;
+}
 
+/* SECTIONS */
+.section{
+padding:100px 40px;
+max-width:1100px;
+margin:auto;
+}
+
+.title{
+font-size:2.5rem;
+margin-bottom:40px;
+}
+
+/* CARDS */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+padding:25px;
+border-radius:18px;
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.06);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+border-color:#5ce1e6;
+}
+
+.card h3{
+margin-bottom:10px;
+}
+
+.card p{
+color:#aaa;
+font-size:.95rem;
+line-height:1.6;
 }
 
 /* FOOTER */
-
 footer{
-
-padding:35px;
-
 text-align:center;
-
-background:#060913;
-
-margin-top:100px;
-
-color:#7582a0;
-
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-header{
-
-flex-direction:column;
-gap:20px;
-
-}
-
-nav{
-
-flex-wrap:wrap;
-justify-content:center;
-
-}
-
-.hero-title{
-
-font-size:3rem;
-
-}
-
-.hero-sub{
-
-font-size:1.2rem;
-
-}
-
+padding:40px;
+color:#666;
+border-top:1px solid rgba(255,255,255,.05);
+margin-top:80px;
 }
 
 </style>
-
 </head>
 
 <body>
 
 <header>
-
-<div class="logo">
-
-<img src="logo.png">
-
-<span>Logicraft Studio</span>
-
-</div>
+<div class="logo">Logicraft Studio</div>
 
 <nav>
-
-<a href="index.html">Inicio</a>
-<a href="servicios.html">Servicios</a>
-<a href="proyectos.html">Proyectos</a>
-<a href="equipo.html">Equipo</a>
-<a href="contacto.html">Contacto</a>
-
+<a href="#inicio">Inicio</a>
+<a href="#servicios">Servicios</a>
+<a href="#proyectos">Proyectos</a>
+<a href="#contacto">Contacto</a>
 </nav>
-
 </header>
 
-<main>
+<section class="hero" id="inicio">
 
-<h1 class="hero-title">
-Logicraft Studio
-</h1>
+<h1>Construimos mundos en Minecraft</h1>
 
-<div class="hero-sub">
-Creamos experiencias Minecraft cinematográficas
-</div>
-
-<p class="description">
-
-En Logicraft Studio desarrollamos servidores,
-sistemas avanzados y experiencias únicas dentro de Minecraft.
-Nuestro objetivo es crear proyectos modernos,
-inmersivos y profesionales.
-
+<p>
+Logicraft Studio es un estudio especializado en servidores,
+sistemas y experiencias cinematográficas dentro de Minecraft.
 </p>
 
-<a href="proyectos.html" class="btn">
-Ver Proyectos
-</a>
+<div class="btns">
+<button class="btn">Ver Proyectos</button>
+<button class="btn">Contactar</button>
+</div>
 
-</main>
+</section>
+
+<section class="section" id="servicios">
+
+<h2 class="title">Servicios</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Servidores</h3>
+<p>Creación de servidores optimizados y únicos.</p>
+</div>
+
+<div class="card">
+<h3>Sistemas</h3>
+<p>Plugins y mecánicas avanzadas personalizadas.</p>
+</div>
+
+<div class="card">
+<h3>Builds</h3>
+<p>Construcciones cinematográficas de alto nivel.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="proyectos">
+
+<h2 class="title">Proyectos</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>SkyWars</h3>
+<p>Sistema competitivo moderno.</p>
+</div>
+
+<div class="card">
+<h3>Survival+</h3>
+<p>Experiencia survival mejorada.</p>
+</div>
+
+<div class="card">
+<h3>PvP Core</h3>
+<p>Sistema PvP profesional.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="contacto">
+
+<h2 class="title">Contacto</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Discord</h3>
+<p>Soporte directo y comunidad.</p>
+</div>
+
+<div class="card">
+<h3>Email</h3>
+<p>logicraft@email.com</p>
+</div>
+
+<div class="card">
+<h3>Redes</h3>
+<p>Próximamente.</p>
+</div>
+
+</div>
+
+</section>
 
 <footer>
-
-© 2026 Logicraft Studio — Todos los derechos reservados
-
+© 2026 Logicraft Studio
 </footer>
 
 </body>
