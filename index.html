@@ -226,29 +226,6 @@ text-align:center;
 
 }
 
-.hero-badge{
-
-display:inline-block;
-
-padding:10px 18px;
-
-border-radius:999px;
-
-background:rgba(255,255,255,.04);
-
-border:1px solid rgba(255,255,255,.08);
-
-color:var(--accent);
-
-font-size:.9rem;
-font-weight:700;
-
-backdrop-filter:blur(10px);
-
-margin-bottom:30px;
-
-}
-
 .hero-title{
 
 font-size:5.5rem;
@@ -343,63 +320,6 @@ scale(1.03);
 
 box-shadow:
 0 0 45px rgba(110,168,255,.35);
-
-}
-
-/* STATS */
-
-.stats{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-
-gap:25px;
-
-margin-top:120px;
-
-}
-
-.stat{
-
-padding:40px;
-
-border-radius:24px;
-
-background:rgba(255,255,255,.04);
-
-border:1px solid rgba(255,255,255,.06);
-
-backdrop-filter:blur(10px);
-
-transition:.35s;
-
-}
-
-.stat:hover{
-
-transform:translateY(-10px);
-
-border-color:var(--accent);
-
-box-shadow:
-0 0 40px rgba(92,225,230,.12);
-
-}
-
-.stat h3{
-
-font-size:3rem;
-font-weight:900;
-
-color:var(--secondary);
-
-}
-
-.stat p{
-
-margin-top:10px;
-
-color:#9eabc7;
 
 }
 
@@ -608,11 +528,11 @@ font-size:2.2rem;
 
 <nav>
 
-<a href="#">Inicio</a>
-<a href="#">Servicios</a>
-<a href="#">Proyectos</a>
-<a href="#">Equipo</a>
-<a href="#">Contacto</a>
+<a href="#inicio">Inicio</a>
+<a href="#servicios">Servicios</a>
+<a href="#proyectos">Proyectos</a>
+<a href="#equipo">Equipo</a>
+<a href="#contacto">Contacto</a>
 
 </nav>
 
@@ -620,11 +540,7 @@ font-size:2.2rem;
 
 <main>
 
-<section class="hero">
-
-<div class="hero-badge">
-⚡ Minecraft Development Studio
-</div>
+<section class="hero" id="inicio">
 
 <h1 class="hero-title">
 Logicraft Studio
@@ -657,39 +573,7 @@ Contactar
 
 </section>
 
-<section class="stats">
-
-<div class="stat">
-
-<h3 data-target="12">0</h3>
-<p>Proyectos</p>
-
-</div>
-
-<div class="stat">
-
-<h3 data-target="30">0</h3>
-<p>Clientes</p>
-
-</div>
-
-<div class="stat">
-
-<h3 data-target="8">0</h3>
-<p>Desarrolladores</p>
-
-</div>
-
-<div class="stat">
-
-<h3 data-target="24">0</h3>
-<p>Soporte</p>
-
-</div>
-
-</section>
-
-<section class="services">
+<section class="services" id="servicios">
 
 <h1 class="section-title">
 Nuestros Servicios
@@ -737,6 +621,139 @@ inmersivos para experiencias memorables.
 
 </section>
 
+<section class="services" id="proyectos">
+
+<h1 class="section-title">
+Proyectos
+</h1>
+
+<div class="service-grid">
+
+<div class="card">
+
+<h2>🧊 SkyWars</h2>
+
+<p>
+Sistema competitivo moderno
+con efectos visuales y progresión.
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>🔥 Survival</h2>
+
+<p>
+Experiencia survival avanzada
+con economía y eventos únicos.
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>⚔ PvP Core</h2>
+
+<p>
+Sistema PvP optimizado con
+mecánicas competitivas.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="services" id="equipo">
+
+<h1 class="section-title">
+Nuestro Equipo
+</h1>
+
+<div class="service-grid">
+
+<div class="card">
+
+<h2>👨‍💻 Developers</h2>
+
+<p>
+Programadores especializados
+en sistemas y plugins avanzados.
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>🏗 Builders</h2>
+
+<p>
+Constructores enfocados
+en mapas cinematográficos.
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>🎨 Designers</h2>
+
+<p>
+Diseñadores de branding,
+interfaces y experiencia visual.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="services" id="contacto">
+
+<h1 class="section-title">
+Contacto
+</h1>
+
+<div class="service-grid">
+
+<div class="card">
+
+<h2>💬 Discord</h2>
+
+<p>
+Únete a nuestra comunidad
+y contáctanos directamente.
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>📧 Email</h2>
+
+<p>
+logicraftstudio@email.com
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>🌐 Redes</h2>
+
+<p>
+Próximamente disponibles.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
 </main>
 
 <footer>
@@ -744,49 +761,6 @@ inmersivos para experiencias memorables.
 © 2026 Logicraft Studio — Todos los derechos reservados
 
 </footer>
-
-<script>
-
-/* COUNTERS */
-
-const counters=document.querySelectorAll(".stat h3");
-
-counters.forEach(counter=>{
-
-const target=+counter.dataset.target;
-
-let count=0;
-
-const updateCounter=()=>{
-
-count++;
-
-if(count<=target){
-
-counter.innerText=
-target===24
-? count+"/7"
-: count;
-
-requestAnimationFrame(updateCounter);
-
-}else{
-
-if(target===24){
-
-counter.innerText="24/7";
-
-}
-
-}
-
-};
-
-updateCounter();
-
-});
-
-</script>
 
 </body>
 </html>
