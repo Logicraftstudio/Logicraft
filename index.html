@@ -1,69 +1,302 @@
 <!DOCTYPE html>
-max-width:800px;
-margin:35px auto;
-line-height:1.9;
-color:var(--text);
-font-size:1.1rem;
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Logicraft Studio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Poppins",sans-serif;
 }
 
-.btn{
-display:inline-block;
-padding:16px 40px;
-border-radius:16px;
-background:linear-gradient(135deg,var(--primary),var(--secondary));
-text-decoration:none;
+:root{
+
+--bg:#0b0f1a;
+--bg2:#131b2d;
+
+--primary:#7b6dff;
+--secondary:#6ea8ff;
+--accent:#5ce1e6;
+
+--text:#aeb8d1;
+
+}
+
+body{
+
+background:
+linear-gradient(180deg,var(--bg),var(--bg2));
+
 color:white;
-font-weight:700;
-margin-top:20px;
+
+min-height:100vh;
+
+overflow-x:hidden;
+
+}
+
+/* HEADER */
+
+header{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:22px 50px;
+
+background:rgba(0,0,0,.35);
+
+backdrop-filter:blur(14px);
+
+border-bottom:1px solid rgba(255,255,255,.06);
+
+}
+
+/* LOGO */
+
+.logo{
+
+display:flex;
+align-items:center;
+gap:14px;
+
+font-size:1.5rem;
+font-weight:800;
+
+}
+
+.logo img{
+
+width:44px;
+height:44px;
+
+object-fit:contain;
+
+}
+
+/* NAV */
+
+nav{
+
+display:flex;
+gap:30px;
+
+}
+
+nav a{
+
+color:#c8d0e8;
+
+text-decoration:none;
+
+font-weight:600;
+
 transition:.3s;
+
+}
+
+nav a:hover{
+
+color:white;
+
+}
+
+/* MAIN */
+
+main{
+
+max-width:1200px;
+
+margin:auto;
+
+padding:140px 30px;
+
+text-align:center;
+
+}
+
+/* HERO */
+
+.hero-title{
+
+font-size:5rem;
+font-weight:900;
+
+background:
+linear-gradient(
+90deg,
+#ffffff,
+#c8d8ff,
+var(--secondary)
+);
+
+-webkit-background-clip:text;
+color:transparent;
+
+}
+
+.hero-sub{
+
+margin-top:20px;
+
+font-size:1.7rem;
+
+color:var(--accent);
+
+}
+
+.description{
+
+max-width:800px;
+
+margin:35px auto;
+
+line-height:1.9;
+
+color:var(--text);
+
+font-size:1.1rem;
+
+}
+
+/* BUTTON */
+
+.btn{
+
+display:inline-block;
+
+padding:16px 40px;
+
+border-radius:16px;
+
+background:
+linear-gradient(
+135deg,
+var(--primary),
+var(--secondary)
+);
+
+text-decoration:none;
+
+color:white;
+
+font-weight:700;
+
+margin-top:20px;
+
+transition:.3s;
+
 }
 
 .btn:hover{
+
 transform:translateY(-5px);
+
 }
 
+/* FOOTER */
+
 footer{
+
 padding:35px;
+
 text-align:center;
+
 background:#060913;
+
 margin-top:100px;
+
 color:#7582a0;
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+header{
+
+flex-direction:column;
+gap:20px;
+
+}
+
+nav{
+
+flex-wrap:wrap;
+justify-content:center;
+
+}
+
+.hero-title{
+
+font-size:3rem;
+
+}
+
+.hero-sub{
+
+font-size:1.2rem;
+
+}
+
 }
 
 </style>
+
 </head>
+
 <body>
 
 <header>
 
 <div class="logo">
+
 <img src="logo.png">
+
 <span>Logicraft Studio</span>
+
 </div>
 
 <nav>
+
 <a href="index.html">Inicio</a>
 <a href="servicios.html">Servicios</a>
 <a href="proyectos.html">Proyectos</a>
 <a href="equipo.html">Equipo</a>
 <a href="contacto.html">Contacto</a>
+
 </nav>
 
 </header>
 
 <main>
 
-<h1 class="hero-title">Logicraft Studio</h1>
+<h1 class="hero-title">
+Logicraft Studio
+</h1>
 
 <div class="hero-sub">
 Creamos experiencias Minecraft cinematográficas
 </div>
 
 <p class="description">
+
 En Logicraft Studio desarrollamos servidores,
 sistemas avanzados y experiencias únicas dentro de Minecraft.
 Nuestro objetivo es crear proyectos modernos,
 inmersivos y profesionales.
+
 </p>
 
 <a href="proyectos.html" class="btn">
@@ -73,7 +306,9 @@ Ver Proyectos
 </main>
 
 <footer>
+
 © 2026 Logicraft Studio — Todos los derechos reservados
+
 </footer>
 
 </body>
